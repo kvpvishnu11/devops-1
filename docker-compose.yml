@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   vprodb:
-    image: kvpvishnu11/vprofiledb   # Pull my DB image
+    image: kvpvishnu11/devopsproject:vprofiledb
     container_name: vprodb
     ports:
       - "3306:3306"
@@ -26,7 +25,7 @@ services:
       - RABBITMQ_DEFAULT_PASSWORD=guest
 
   vproapp:
-    image: kvpvishnu11/vprofileapp   # Pull my JAVA app
+    image: kvpvishnu11/devopsproject:vprofileapp
     container_name: vproapp
     ports:
       - "8080:8080"
@@ -34,7 +33,7 @@ services:
       - vproappdata:/usr/local/tomcat/webapps
 
   vproweb:
-    image: kvpvishnu11/vprofileweb   # Pull NGINX server revers proxy image
+    image: kvpvishnu11/devopsproject:vprofileweb
     container_name: vproweb
     ports:
       - "80:80"
